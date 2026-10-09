@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | MyTask</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">
+                        <img src="logo.png" alt="Taskly Logo" class="logo-img" style="width:100%;height:100%;object-fit:cover;border-radius:10px;">
+                    </div>
+                    <span>MyTask</span>
+                </a>
+                <h1>Create Account</h1>
+                <p>Start organizing your life with MyTask</p>
+            </div>
+
+            <!-- SIGNUP FORM -->
+            <form id="signupForm" class="auth-form">
+                <div class="form-group">
+                    <label for="displayName">Full Name</label>
+                    <div class="input-icon">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="displayName" placeholder="John Doe" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <div class="input-icon">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" id="email" placeholder="you@example.com" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-icon">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="password" placeholder="Min 6 characters" required minlength="6">
+                        <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <div class="input-icon">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+                    </div>
+                </div>
+
+                <div class="auth-options">
+                    <label class="terms-check">
+                        <input type="checkbox" id="termsCheck" required>
+                        <span>I agree to the <a href="#" class="terms-link">Terms of Service</a> and <a href="#" class="terms-link">Privacy Policy</a></span>
+                    </label>
+                </div>
+
+                <button type="submit" class="auth-btn primary-btn">
+                    <i class="fa-solid fa-user-plus"></i>
+                    Create Account
+                </button>
+            </form>
+
+            <div class="auth-divider">
+                <span>or continue with</span>
+            </div>
+
+            <button type="button" id="googleSignIn" class="auth-btn google-btn">
+                <i class="fa-brands fa-google"></i>
+                Sign up with Google
+            </button>
+
+            <p class="auth-footer">
+                Already have an account? <a href="login.html">Sign in</a>
+            </p>
+
+            <div id="authMessage" class="auth-message"></div>
+        </div>
+    </div>
+
+    <script type="module" src="auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Projects | MyTask</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+    <header class="header">
+
+        <a href="index.html" class="logo">
+            <div class="logo-icon">
+                <img src="logo.png" alt="Taskly Logo" class="logo-img" style="width:100%;height:100%;object-fit:cover;border-radius:10px;">
+            </div>
+            <span>MyTask</span>
+        </a>
+
+        <nav class="nav-menu">
+            <a href="index.html">Home</a>
+            <a href="tasks.html">Tasks</a>
+            <a href="calendar.html">Calendar</a>
+            <a href="projects.html">Projects</a>
+            <a href="notes.html">Notes</a>
+            <a href="history.html">History</a>
+        </nav>
+
+        <div class="header-buttons">
+            <a href="login.html" class="login-btn">Log in</a>
+            <a href="signup.html" class="signup-btn">Sign up</a>
+        </div>
+
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+    </header>
+
+
+    <main class="page">
+
+        <section class="page-top">
+            <div>
+                <span class="small-title">BIGGER PICTURE</span>
+                <h1>Projects</h1>
+                <p>Organise larger work and track progress with subtasks.</p>
+            </div>
+
+            <button type="button" class="primary-btn" id="addProjectButton">
+                <i class="fa-solid fa-plus"></i>
+                New Project
+            </button>
+        </section>
+
+        <section class="projects-grid" id="projectsGrid"></section>
+
+    </main>
+
+
+    <!-- ADD / EDIT PROJECT MODAL -->
+    <div class="modal-overlay" id="projectModal">
+        <div class="task-modal">
+
+            <div class="modal-header">
+                <div>
+                    <h2 id="modalTitle">New Project</h2>
+                    <p>Give your project a name and a colour.</p>
+                </div>
+                <button type="button" class="close-modal" id="closeModal" aria-label="Close modal">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form id="projectForm">
+
+                <div class="form-group">
+                    <label for="projectName">Project Name</label>
+                    <input id="projectName" type="text" placeholder="Example: Portfolio Website" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="projectDescription">Description</label>
+                    <textarea id="projectDescription" rows="3" placeholder="What is this project about?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Colour</label>
+                    <div class="color-picker" id="colorPicker">
+                        <div class="color-swatch selected" data-color="#3157e1" style="background:#3157e1"></div>
+                        <div class="color-swatch" data-color="#079669" style="background:#079669"></div>
+                        <div class="color-swatch" data-color="#e88b12" style="background:#e88b12"></div>
+                        <div class="color-swatch" data-color="#7c3aed" style="background:#7c3aed"></div>
+                        <div class="color-swatch" data-color="#db2777" style="background:#db2777"></div>
+                        <div class="color-swatch" data-color="#dc4444" style="background:#dc4444"></div>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="cancel-task" id="cancelProject">Cancel</button>
+                    <button type="submit" class="save-task" id="saveProjectBtn">
+                        <i class="fa-solid fa-plus"></i>
+                        Create Project
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+    <script src="storage.js"></script>
+    <script src="common.js"></script>
+    <script src="projects.js"></script>
+
+</body>
+</html>

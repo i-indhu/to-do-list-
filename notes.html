@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sticky Notes | MyTask</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+    <header class="header">
+
+        <a href="index.html" class="logo">
+            <div class="logo-icon">
+                <img src="logo.png" alt="Taskly Logo" class="logo-img" style="width:100%;height:100%;object-fit:cover;border-radius:10px;">
+            </div>
+            <span>MyTask</span>
+        </a>
+
+        <nav class="nav-menu">
+            <a href="index.html">Home</a>
+            <a href="tasks.html">Tasks</a>
+            <a href="calendar.html">Calendar</a>
+            <a href="projects.html">Projects</a>
+            <a href="notes.html">Notes</a>
+            <a href="history.html">History</a>
+        </nav>
+
+        <div class="header-buttons">
+            <a href="login.html" class="login-btn">Log in</a>
+            <a href="signup.html" class="signup-btn">Sign up</a>
+        </div>
+
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+    </header>
+
+
+    <main class="page">
+
+        <section class="page-top">
+            <div>
+                <span class="small-title">QUICK CAPTURE</span>
+                <h1>Sticky Notes</h1>
+                <p>Save quick ideas, reminders and information.</p>
+            </div>
+        </section>
+
+        <section class="notes-grid" id="notesGrid"></section>
+
+    </main>
+
+
+    <!-- ADD / EDIT NOTE MODAL -->
+    <div class="modal-overlay" id="noteModal">
+        <div class="task-modal">
+
+            <div class="modal-header">
+                <div>
+                    <h2 id="modalTitle">New Note</h2>
+                    <p>Jot something down.</p>
+                </div>
+                <button type="button" class="close-modal" id="closeModal" aria-label="Close modal">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form id="noteForm">
+
+                <div class="form-group">
+                    <label for="noteText">Note</label>
+                    <textarea id="noteText" rows="5" placeholder="Type your note here..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Colour</label>
+                    <div class="color-picker" id="colorPicker">
+                        <div class="color-swatch selected" data-color="#fff8d7" style="background:#fff8d7"></div>
+                        <div class="color-swatch" data-color="#e9eeff" style="background:#e9eeff"></div>
+                        <div class="color-swatch" data-color="#e7f8f1" style="background:#e7f8f1"></div>
+                        <div class="color-swatch" data-color="#fce8f3" style="background:#fce8f3"></div>
+                        <div class="color-swatch" data-color="#fff3df" style="background:#fff3df"></div>
+                        <div class="color-swatch" data-color="#f0eaff" style="background:#f0eaff"></div>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="cancel-task" id="cancelNote">Cancel</button>
+                    <button type="submit" class="save-task" id="saveNoteBtn">
+                        <i class="fa-solid fa-plus"></i>
+                        Add Note
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+    <script src="storage.js"></script>
+    <script src="common.js"></script>
+    <script src="notes.js"></script>
+
+</body>
+</html>

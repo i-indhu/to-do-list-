@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account | MyTask</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+
+    <header class="header">
+        <a href="index.html" class="logo">
+            <div class="logo-icon">
+                <img src="logo.png" alt="Taskly Logo" class="logo-img" style="width:100%;height:100%;object-fit:cover;border-radius:10px;">
+            </div>
+            <span>MyTask</span>
+        </a>
+
+        <nav class="nav-menu">
+            <a href="index.html">Home</a>
+            <a href="tasks.html">Tasks</a>
+            <a href="calendar.html">Calendar</a>
+            <a href="projects.html">Projects</a>
+            <a href="notes.html">Notes</a>
+            <a href="history.html">History</a>
+        </nav>
+
+        <div class="header-buttons">
+            <a href="login.html" class="login-btn">Log in</a>
+            <a href="signup.html" class="signup-btn">Sign up</a>
+        </div>
+
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </header>
+
+    <main class="page">
+        <section class="page-top">
+            <div>
+                <span class="small-title">ACCOUNT MANAGEMENT</span>
+                <h1>User Profile</h1>
+                <p>Manage your account settings, personal details, and security.</p>
+            </div>
+        </section>
+
+        <div class="profile-container">
+            <div class="profile-card">
+                <div class="profile-avatar">
+                    <div class="avatar-circle" id="avatarCircle">
+                        <span id="avatarInitial">U</span>
+                    </div>
+                </div>
+                <h2 id="profileName">User Account</h2>
+                <p class="profile-email" id="profileEmail">user@example.com</p>
+                <span class="profile-badge verified" id="profileStatus">✓ Active Account</span>
+            </div>
+
+            <div class="profile-form-card">
+                <h3><i class="fa-solid fa-user-gear"></i> Account Information</h3>
+                
+                <form id="profileForm">
+                    <div class="form-group">
+                        <label for="displayName">Full Name / Display Name</label>
+                        <input type="text" id="displayName" placeholder="Your Full Name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" disabled>
+                        <span class="form-hint">Email address is linked to your authentication account</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="accountCreated">Account Created</label>
+                        <input type="text" id="accountCreated" value="Recently" disabled>
+                    </div>
+
+                    <button type="submit" class="primary-btn" id="updateProfileBtn">
+                        <i class="fa-solid fa-floppy-disk"></i> Save Changes
+                    </button>
+                </form>
+
+                <div id="profileMessage" class="profile-message" style="margin-top: 15px;"></div>
+            </div>
+
+            <div class="profile-actions">
+                <button type="button" class="action-btn" id="resetPasswordBtn">
+                    <i class="fa-solid fa-key"></i> Reset Password
+                </button>
+                <button type="button" class="action-btn danger-btn" id="logoutBtn">
+                    <i class="fa-solid fa-right-from-bracket"></i> Sign Out
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script src="storage.js"></script>
+    <script src="common.js"></script>
+    <script type="module" src="profile.js"></script>
+</body>
+</html>

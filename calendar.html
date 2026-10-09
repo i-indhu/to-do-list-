@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Calendar | MyTask</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+    <header class="header">
+
+        <a href="index.html" class="logo">
+            <div class="logo-icon">
+                <img src="logo.png" alt="Taskly Logo" class="logo-img" style="width:100%;height:100%;object-fit:cover;border-radius:10px;">
+            </div>
+            <span>MyTask</span>
+        </a>
+
+        <nav class="nav-menu">
+            <a href="index.html">Home</a>
+            <a href="tasks.html">Tasks</a>
+            <a href="calendar.html">Calendar</a>
+            <a href="projects.html">Projects</a>
+            <a href="notes.html">Notes</a>
+            <a href="history.html">History</a>
+        </nav>
+
+        <div class="header-buttons">
+            <a href="login.html" class="login-btn">Log in</a>
+            <a href="signup.html" class="signup-btn">Sign up</a>
+        </div>
+
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+    </header>
+
+
+    <main class="page">
+
+        <section class="page-top">
+            <div>
+                <span class="small-title">SCHEDULE</span>
+                <h1>Calendar</h1>
+                <p>See your tasks laid out by date.</p>
+            </div>
+
+            <button type="button" class="primary-btn" id="addTaskButton">
+                <i class="fa-solid fa-plus"></i>
+                Add Task
+            </button>
+        </section>
+
+        <section class="task-toolbar">
+
+            <div class="calendar-nav">
+                <button type="button" class="calendar-nav-btn" id="prevMonth" title="Previous Month">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <span class="calendar-month-label" id="monthLabel"></span>
+                <button type="button" class="calendar-nav-btn" id="nextMonth" title="Next Month">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <div class="task-filters" id="calendarFilterTabs">
+                <button type="button" class="filter-tab active" data-cal-filter="all"><i class="fa-solid fa-layer-group"></i> All View</button>
+                <button type="button" class="filter-tab" data-cal-filter="personal"><i class="fa-solid fa-user-check"></i> Personal Tasks</button>
+                <button type="button" class="filter-tab" data-cal-filter="holidays"><i class="fa-solid fa-om"></i> Indian Holidays</button>
+            </div>
+
+            <button type="button" class="calendar-today-btn" id="todayBtn">Today</button>
+
+        </section>
+
+        <section class="calendar-grid">
+
+            <div class="calendar-weekdays">
+                <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span>
+                <span>Thu</span><span>Fri</span><span>Sat</span>
+            </div>
+
+            <div class="calendar-days" id="calendarDays"></div>
+
+        </section>
+
+        <section class="day-agenda" id="dayAgenda">
+            <h3 id="agendaTitle">Select a day to see its tasks</h3>
+            <div class="task-list" id="agendaList"></div>
+        </section>
+
+    </main>
+
+
+    <!-- ADD / EDIT TASK MODAL (shared markup with Tasks page) -->
+    <div class="modal-overlay" id="taskModal">
+        <div class="task-modal">
+
+            <div class="modal-header">
+                <div>
+                    <h2 id="modalTitle">Add New Task</h2>
+                    <p id="modalSubtitle">Plan your next task and keep your day organized.</p>
+                </div>
+                <button type="button" class="close-modal" id="closeModal" aria-label="Close modal">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form id="taskForm">
+
+                <input type="hidden" id="taskId">
+
+                <div class="form-group">
+                    <label for="taskName">Task Name</label>
+                    <input id="taskName" type="text" placeholder="Example: Finish homepage design" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="taskDescription">Description</label>
+                    <textarea id="taskDescription" rows="3" placeholder="Add some details about this task..."></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="taskDate">Due Date</label>
+                        <input id="taskDate" type="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="taskTime">Time</label>
+                        <input id="taskTime" type="time">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="taskPriority">Priority</label>
+                        <select id="taskPriority">
+                            <option value="low">Low</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="taskCategory">Category</label>
+                        <select id="taskCategory">
+                            <option value="personal" selected>Personal</option>
+                            <option value="work">Work</option>
+                            <option value="study">Study</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="cancel-task" id="cancelTask">Cancel</button>
+                    <button type="submit" class="save-task" id="saveTaskBtn">
+                        <i class="fa-solid fa-plus"></i>
+                        Add Task
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+    <script src="storage.js"></script>
+    <script src="common.js"></script>
+    <script src="calendar.js"></script>
+
+</body>
+</html>
